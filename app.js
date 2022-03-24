@@ -7,11 +7,10 @@ const weatherApi = {
 
 const searchInputBox = document.getElementById('input-box');
 
-// Event Listener Function on keypress
 searchInputBox.addEventListener('keypress', (event) => {
     
     if(event.keyCode === 13) {
-        console.log(searchInputBox.value);   //Input may jo city ka naam dege wo yaha par lege
+        console.log(searchInputBox.value);   
         getWeatherReport(searchInputBox.value);
         document.querySelector('.weather-body').style.display = "block";
     }
@@ -20,10 +19,10 @@ searchInputBox.addEventListener('keypress', (event) => {
 
 // Get Weather Report
 function getWeatherReport(city) {
-    fetch(`${weatherApi.baseUrl}?q=${city}&appid=${weatherApi.key}&units=metric`)  //&units=metric -: Temperature jo API se mil raha hai wo other format mai hai use Degree Celcius may show karnay kay liye 
-    .then(weather => {  //Ye API call hone ke baad yaha par hum data fetch kar rahay hai
-        return weather.json();  //Data JSON format may return kar rahay hai
-    }).then(showWeatherReport);  //Jaise he data JSON format may return hoga, 'showWeatherReport' function call hoga
+    fetch(`${weatherApi.baseUrl}?q=${city}&appid=${weatherApi.key}&units=metric`)  
+    .then(weather => {  
+        return weather.json();  
+    }).then(showWeatherReport); 
 }
 
 // Show Weather Report
